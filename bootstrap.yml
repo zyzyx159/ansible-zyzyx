@@ -30,13 +30,24 @@
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/Git/ohmyzsh # delete after install
-      - /usr/local/bin/oh-my-posh
-      - /home/zyzyx/.poshthemes
+      - /usr/local/bin/oh-my-posh # owned by root
+      - /home/zyzyx/.poshthemes # owned by me
 
-  - name: Install oh-my-zsh
+  - name: Download oh-my-zsh installer
     get_url:
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /home/zyzyx/Git/ohmyzsh/install.sh
+
+  - name: Change owner of files and folders
+    ansible.builtin.file:
+      path: "{{ item }}"
+      state: directory
+      recurse: yes
+      owner: zyzyx
+      group: zyzyx
+    loop:
+      - /home/zyzyx/Git
+      - /home/zyzyx/.poshthemes
 
   - name: Run oh-my-zsh installer
     ansible.builtin.script: /home/zyzyx/Git/ohmyzsh/install.sh --unattended
