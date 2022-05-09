@@ -2,7 +2,6 @@
 
 - hosts: all
   become: true
-  become_user: zyzyx
   tasks:
 
   - name: install base apps
@@ -22,18 +21,19 @@
       state: latest
 
   - name: Make folders for Git projects
+    become: true
+    become_user: zyzyx
     ansible.builtin.file:
       path: 
         - /home/zyzyx/Git
         - /home/zyzyx/Git/ohmyzsh
       state: directory
-      mode: '0700'
+      mode: '0770'
 
   - name: Install oh-my-zsh
     get_url:
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /home/zyzyx/Git/ohmyzsh/install.sh
-      mode: 0660
 
   - name: Run oh-my-zsh installer
     ansible.builtin.script: /home/zyzyx/Git/ohmyzsh/install.sh --unattended
