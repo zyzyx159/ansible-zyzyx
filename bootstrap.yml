@@ -21,10 +21,10 @@
       state: latest
 
   - name: Install oh-my-zsh
-      get_url:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        dest: ~/Git/ohmyzsh/install.sh
-        mode: 0660
-        
+    get_url:
+      url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+      dest: ~/Git/ohmyzsh/install.sh
+      mode: 0660
+
   - name: Run oh-my-zsh installer
-      ansible.builtin.script: ~/Git/ohmyzsh/install.sh --unattended
+    ansible.builtin.script: ~/Git/ohmyzsh/install.sh --unattended
