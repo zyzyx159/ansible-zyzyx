@@ -6,7 +6,7 @@
 
   - name: install base apps
   apt:
-    pkg:
+    name:
       - curl
       - tmux
       - cmatrix
