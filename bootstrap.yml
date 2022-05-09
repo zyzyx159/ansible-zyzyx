@@ -23,9 +23,13 @@
 
   - name: Make folders for Git projects
     ansible.builtin.file:
-    path: 
-      - ~/Git
-      - ~/Git/ohmyzsh
+    path: ~/Git
+    state: directory
+    mode: '0700'
+
+  - name: Make folders for Git projects
+    ansible.builtin.file:
+    path: ~/Git/ohmyzsh
     state: directory
     mode: '0700'
 
