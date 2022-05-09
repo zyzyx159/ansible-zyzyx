@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install base apps
+  apt:
+    pkg:
+      - curl
+      - tmux
+      - cmatrix
+      - htop
+      - neofetch
+      - ca-certificates
+      - gnupg
+      - lsb-release
+      - zsh
+      - zplug
+      - wget
+    state: latest
+    update_cache: true
