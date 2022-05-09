@@ -5,18 +5,17 @@
   tasks:
 
   - name: install base apps
-  apt:
-    name:
-      - curl
-      - tmux
-      - cmatrix
-      - htop
-      - neofetch
-      - ca-certificates
-      - gnupg
-      - lsb-release
-      - zsh
-      - zplug
-      - wget
-    state: latest
-    update_cache: true
+    apt:
+      name:
+        - curl
+        - tmux
+        - cmatrix
+        - htop
+        - neofetch
+        - ca-certificates
+        - gnupg
+        - lsb-release
+        - zsh
+        - zplug
+        - wget
+      state: latest
