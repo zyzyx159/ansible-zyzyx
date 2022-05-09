@@ -21,12 +21,17 @@
       state: latest
 
   - name: Make folders for Git projects
-    become: true
-    become_user: zyzyx
     ansible.builtin.file:
-      path: /home/zyzyx/Git/ohmyzsh
+      path: "{{ item }}"
       state: directory
+      owner: zyzyx
+      group: zyzyx
       mode: '0770'
+    loop:
+      - /home/zyzyx/Git
+      - /home/zyzyx/Git/ohmyzsh # delete after install
+      - /usr/local/bin/oh-my-posh
+      - /home/zyzyx/.poshthemes
 
   - name: Install oh-my-zsh
     get_url:
