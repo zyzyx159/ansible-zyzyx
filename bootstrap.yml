@@ -24,9 +24,7 @@
     become: true
     become_user: zyzyx
     ansible.builtin.file:
-      path: 
-        - /home/zyzyx/Git
-        - /home/zyzyx/Git/ohmyzsh
+      path: /home/zyzyx/Git/ohmyzsh
       state: directory
       mode: '0770'
 
