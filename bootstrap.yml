@@ -58,5 +58,4 @@
       - /home/zyzyx/Git/ohmyzsh/install.sh
 
   - name: Run oh-my-zsh installer
-    ansible.builtin.script: 
-      cmd: /home/zyzyx/Git/ohmyzsh/install.sh --unattended
+    command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
