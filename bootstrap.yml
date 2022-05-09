@@ -49,5 +49,13 @@
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
 
+  - name: Add execute permsions to scripts
+    file:
+      path: "{{ item }}"
+      state: file
+      mode: u+rwx,g+rwx,o-rwx
+    loop:
+      - /home/zyzyx/Git/ohmyzsh/install.sh
+
   - name: Run oh-my-zsh installer
     ansible.builtin.script: /home/zyzyx/Git/ohmyzsh/install.sh --unattended
