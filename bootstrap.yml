@@ -2,6 +2,7 @@
 
 - hosts: all
   become: true
+  # change this to zyzyx user and sudo: yes
   tasks:
 
   - name: install base apps
