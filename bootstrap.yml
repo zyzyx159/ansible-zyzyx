@@ -4,7 +4,6 @@
   become: yes
   become_user: zyzyx
   become_method: sudo
-  # change this to zyzyx user and sudo: yes
   tasks:
 
   - name: install base apps
@@ -41,6 +40,21 @@
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /home/zyzyx/Git/ohmyzsh/install.sh
 
+  - name: Clone zsh autocomplet repository
+    git:
+      repo: https://github.com/marlonrichert/zsh-autocomplete.git
+      dest: /home/zyzyx/.oh-my-zsh/custom/plugins/zsh-autocomplete
+      clone: yes
+      update: yes
+
+  - name: Clone zsh suggestions repository
+    git:
+      repo: https://github.com/zsh-users/zsh-autosuggestions
+      dest: /home/zyzyx/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+      clone: yes
+      update: yes
+
+#this task may not be necessary now that I use sudo
   - name: Change owner of files and folders
     ansible.builtin.file:
       path: "{{ item }}"
