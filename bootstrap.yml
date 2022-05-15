@@ -5,17 +5,14 @@
   become_user: zyzyx
   become_method: sudo
   tasks:
-
   - name: update and upgrade distro
     apt: 
       update_cache: yes
       upgrade: dist
-  
   - name: update and upgrade all packages
     apt:
       name: "*"
       state: latest
-
   - name: install base apps
     apt:
       name:
