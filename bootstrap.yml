@@ -95,3 +95,10 @@
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
+  - name: copy dot files
+    copy:
+      src: "{{item}}"
+      dest: /home/zyzyx
+      owner: zyzyx
+      group: zyzyx
+      mode: 0640
