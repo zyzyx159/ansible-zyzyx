@@ -32,9 +32,6 @@
     file:
       path: "{{ item }}"
       state: directory
-      owner: zyzyx
-      group: zyzyx
-      mode: '0770'
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/Git/ohmyzsh # delete after install
@@ -66,6 +63,17 @@
       dest: /home/zyzyx/.poshthemes
       remote_src: yes
 
+  - name: Change owner of files and folders
+    file:
+      path: "{{ item }}"
+      state: directory
+      recurse: yes
+      owner: zyzyx
+      group: zyzyx
+    loop:
+      - /home/zyzyx/Git
+      - /home/zyzyx/.poshthemes
+
   - name: Add execute permsions to scripts
     file:
       path: "{{ item }}"
@@ -75,6 +83,6 @@
       - /home/zyzyx/Git/ohmyzsh/install.sh
 
   - name: Run oh-my-zsh installer
-    become: yes
-    become_user: zyzyx
+  become: yes
+  become_user: zyzyx
     command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
