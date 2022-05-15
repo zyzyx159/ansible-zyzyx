@@ -98,7 +98,7 @@
   - name: copy dot files
     copy:
       src: "{{item}}"
-      dest: /home/zyzyx
+      dest: '/home/zyzyx'
       owner: zyzyx
       group: zyzyx
       mode: 0640
