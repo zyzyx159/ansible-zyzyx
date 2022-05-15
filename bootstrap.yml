@@ -20,6 +20,7 @@
         - zsh
         - zplug
         - wget
+        - unzip
       state: latest
 
   - name: Make folders for Git projects
