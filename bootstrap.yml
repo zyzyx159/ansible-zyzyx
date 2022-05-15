@@ -2,8 +2,6 @@
 
 - hosts: all
   become: yes
-  become_user: zyzyx
-  become_method: sudo
   tasks:
   - name: update and upgrade distro
     apt: 
