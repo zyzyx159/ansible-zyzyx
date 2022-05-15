@@ -43,6 +43,22 @@
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: /home/zyzyx/Git/ohmyzsh/install.sh
 
+# I have to run the installer before I run the addons
+  - name: Add execute permsions to scripts
+    file:
+      path: "{{ item }}"
+      state: file
+      owner: zyzyx
+      group: zyzyx
+      mode: u+rwx,g+rwx,o-rwx
+    loop:
+      - /home/zyzyx/Git/ohmyzsh/install.sh
+
+  - name: Run oh-my-zsh installer
+    become: yes
+    become_user: zyzyx
+    command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
+
   - name: Clone zsh autocomplet repository
     git:
       repo: https://github.com/marlonrichert/zsh-autocomplete.git
@@ -73,16 +89,3 @@
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
-
-  - name: Add execute permsions to scripts
-    file:
-      path: "{{ item }}"
-      state: file
-      mode: u+rwx,g+rwx,o-rwx
-    loop:
-      - /home/zyzyx/Git/ohmyzsh/install.sh
-
-  - name: Run oh-my-zsh installer
-    become: yes
-    become_user: zyzyx
-    command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
