@@ -97,8 +97,11 @@
       - /home/zyzyx/.poshthemes
   - name: copy dot files
     copy:
-      src: .zshrc
+      src: "{{item}}"
       dest: '/home/zyzyx'
       owner: zyzyx
       group: zyzyx
       mode: 0640
+    loop:
+      - bashrc
+      - zshrc
