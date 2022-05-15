@@ -78,6 +78,11 @@
       dest: /home/zyzyx/.poshthemes
       remote_src: yes
 
+  - name: Download and unzip CascadiaCode.zip
+    unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
+    dest: /usr/share/fonts/truetype
+
   - name: Change owner of files and folders
     file:
       path: "{{ item }}"
