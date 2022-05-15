@@ -34,8 +34,7 @@
       state: directory
     loop:
       - /home/zyzyx/Git
-      - /home/zyzyx/Git/ohmyzsh # delete after install
-      - /usr/local/bin/oh-my-posh # owned by root
+      - /home/zyzyx/Git/ohmyzsh 
       - /home/zyzyx/.poshthemes # owned by me
 
   - name: Download oh-my-zsh installer
