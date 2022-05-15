@@ -75,4 +75,6 @@
       - /home/zyzyx/Git/ohmyzsh/install.sh
 
   - name: Run oh-my-zsh installer
+    become: yes
+    become_user: zyzyx
     command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
