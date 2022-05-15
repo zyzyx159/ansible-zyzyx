@@ -6,6 +6,16 @@
   become_method: sudo
   tasks:
 
+  - name: update and upgrade distro
+    apt: 
+      update_cache: yes
+      upgrade: dist
+  
+  - name: update and upgrade all packages
+    apt:
+      name: "*"
+      state: latest
+
   - name: install base apps
     apt:
       name:
@@ -55,23 +65,11 @@
       clone: yes
       update: yes
 
-  - name: Dwonload and unzip poshthemes
+  - name: Download and unzip poshthemes
     unarchive: 
       src: https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip
       dest: /home/zyzyx/.poshthemes
       remote_src: yes
-
-#this task may not be necessary now that I use sudo
-  - name: Change owner of files and folders
-    ansible.builtin.file:
-      path: "{{ item }}"
-      state: directory
-      recurse: yes
-      owner: zyzyx
-      group: zyzyx
-    loop:
-      - /home/zyzyx/Git
-      - /home/zyzyx/.poshthemes
 
   - name: Add execute permsions to scripts
     file:
