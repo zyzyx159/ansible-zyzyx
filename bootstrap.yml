@@ -68,7 +68,7 @@
     get_url:
       url: https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64
       dest: /usr/local/bin/oh-my-posh
-    - name: add execute
+  - name: add execute
     file:
       path: "{{ item }}"
       state: file
