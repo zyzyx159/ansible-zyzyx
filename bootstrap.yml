@@ -102,3 +102,6 @@
       owner: zyzyx
       group: zyzyx
       mode: 0640
+    loop:
+      - .bashrc
+      - .zshrc
