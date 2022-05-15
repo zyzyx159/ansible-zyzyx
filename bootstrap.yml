@@ -34,7 +34,7 @@
       state: latest
 
   - name: Make folders for Git projects
-    ansible.builtin.file:
+    file:
       path: "{{ item }}"
       state: directory
       owner: zyzyx
