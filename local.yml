@@ -52,7 +52,7 @@
     become: yes
     become_user: zyzyx
     command: sh /home/zyzyx/Git/ohmyzsh/install.sh --unattended
-  - name: Clone zsh autocomplet repository
+  - name: Clone zsh autocomplete repository
     git:
       repo: https://github.com/marlonrichert/zsh-autocomplete.git
       dest: /home/zyzyx/.oh-my-zsh/custom/plugins/zsh-autocomplete
