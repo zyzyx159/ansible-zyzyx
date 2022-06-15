@@ -3,10 +3,9 @@
 - hosts: all
   become: yes
   tasks:
-  - name: update and upgrade distro
+  - name: update
     apt: 
       update_cache: yes
-      upgrade: dist
   - name: update and upgrade all packages
     apt:
       name: "*"
