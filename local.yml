@@ -14,7 +14,6 @@
     apt:
       name:
         - curl
-        - tmux
         - cmatrix
         - htop
         - neofetch
@@ -106,6 +105,13 @@
     copy:
       src: Files/zshrc
       dest: /home/zyzyx/.zshrc
+      owner: zyzyx
+      group: zyzyx
+      mode: 0740
+  - name: copy zyzyx.json
+    copy:
+      src: Files/zyzyx.json
+      dest: /home/zyzyx/.poshthemes/zyzyx.omp.json
       owner: zyzyx
       group: zyzyx
       mode: 0740
