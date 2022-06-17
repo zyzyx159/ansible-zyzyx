@@ -91,13 +91,14 @@
       recurse: yes
       owner: zyzyx
       group: zyzyx
+      mode: 0740
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
   - name: copy dot files
     copy:
-      src: '/srv/Files/bashrc'
-      dest: '/home/zyzyx/.bashrc'
+      src: Files/bashrc
+      dest: /home/zyzyx/.bashrc
       owner: zyzyx
       group: zyzyx
       mode: 0740
