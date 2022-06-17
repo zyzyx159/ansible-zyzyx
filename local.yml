@@ -95,10 +95,17 @@
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
-  - name: copy dot files
+  - name: copy bashrc
     copy:
       src: Files/bashrc
       dest: /home/zyzyx/.bashrc
+      owner: zyzyx
+      group: zyzyx
+      mode: 0740
+  - name: copy .zshrc
+    copy:
+      src: Files/zshrc
+      dest: /home/zyzyx/.zshrc
       owner: zyzyx
       group: zyzyx
       mode: 0740
