@@ -86,6 +86,10 @@
       src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
       dest: /usr/share/fonts/truetype
       remote_src: yes
+  - name: change user shell to zsh
+    user: 
+      name: zyzyx
+      shell: /bin/zsh
   - name: Change owner of files and folders
     file:
       path: "{{ item }}"
