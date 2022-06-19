@@ -94,6 +94,12 @@
     loop:
       - /home/zyzyx/Git
       - /home/zyzyx/.poshthemes
+  - name: change shell
+    user:
+      name: zyzyx
+      shell: /bin/zsh
+      groups: wheel
+      append: yes
   - name: copy bashrc
     copy:
       src: Files/bashrc
