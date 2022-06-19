@@ -3,6 +3,9 @@
 - hosts: all
   become: yes
   tasks:
+  - name: set time zone to America/Chicago
+    timezone: 
+      name: America/Chicago
   - name: update
     apt: 
       update_cache: yes
