@@ -10,3 +10,5 @@ patching(){
 };
 
 patching;
+
+reboot;
