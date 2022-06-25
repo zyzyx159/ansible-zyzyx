@@ -3,8 +3,9 @@
 set -e
 
 patching(){
-    sudo apt update -y
-    sudo DEBIAN_FRONTEND=NONINTERACTIVE apt upgrade -y
+    apt update -y
+    DEBIAN_FRONTEND=NONINTERACTIVE apt upgrade -y
+    DEBIAN_FRONTEND=NONINTERACTIVE apt install ansible -y
 };
 
 patching;
