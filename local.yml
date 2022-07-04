@@ -105,7 +105,7 @@
     user:
       name: zyzyx
       shell: /bin/zsh
-      groups: wheel
+      groups: sudo
       append: yes
   - name: copy bashrc
     copy:
