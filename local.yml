@@ -36,11 +36,12 @@
         - /home/zyzyx/Git
         - /home/zyzyx/Git/ohmyzsh
         - /home/zyzyx/.poshthemes # owned by me
+        - /usr/share/fonts/truetype/CaskaydiaCove
     - name: Download oh-my-zsh installer
       get_url:
         url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
         dest: /home/zyzyx/Git/ohmyzsh/install.sh
-    - name: Add execute permsions to scripts
+    - name: Add execute permissions to scripts
       file:
         path: "{{ item }}"
         state: file
@@ -84,7 +85,7 @@
     - name: Download and unzip CascadiaCode.zip
       unarchive:
         src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
-        dest: /usr/share/fonts/truetype
+        dest: /usr/share/fonts/truetype/CaskaydiaCove/
         remote_src: yes
     - name: change user shell to zsh
       user:
