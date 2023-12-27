@@ -41,7 +41,8 @@
         path: /home/zyzyx/git/
         owner: zyzyx
         group: zyzyx
-        mode: '1770'
+        state: directory
+        mode: '0770'
     - name: clone nerd-font
       ansible.builtin.git:
         repo: https://github.com/ryanoasis/nerd-fonts
