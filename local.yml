@@ -30,28 +30,30 @@
           - wget
           - zsh
         state: latest
-    - name: Download and unzip CascadiaCode.zip
-      unarchive:
-        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
-        dest: /usr/share/fonts/truetype/CaskaydiaCove/
-        remote_src: yes
-    - name: change user shell to zsh
-      user:
-        name: zyzyx
-        shell: /bin/zsh
     - name: change shell
       user:
         name: zyzyx
         shell: /bin/zsh
         groups: sudo
         append: yes
-    - name: copy .zshrc
-      copy:
-        src: Files/zshrc
-        dest: /home/zyzyx/.zshrc
+    - name: make git folder
+      ansible.builtin.file:
+        path: /home/zyzyx/git/
         owner: zyzyx
         group: zyzyx
-        mode: 0740
+        mode: '1770'
+    - name: clone nerd-font
+      ansible.builtin.git:
+        repo: https://github.com/ryanoasis/nerd-fonts
+        dest: /home/zyzyx/git/
+        depth: 1
+    - name: install nerd-fonts
+      ansible.builtin.script:
+        cmd: /home/zyzyx/git/nerd-fonts/install.sh
+    - name: remove nerd-fonts
+      ansible.builtin.file:
+        path: /home/zyzyx/git/nerd-fonts/
+        state: absent
     - name: find 16 fastest repositories
       ansible.builtin.shell: nala fetch --auto --fetches 16
       become: true
