@@ -36,6 +36,10 @@
         shell: /bin/zsh
         groups: sudo
         append: yes
+    - name: add ssh key
+      user: zyzyx
+      state: present
+      key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
     - name: make git folder
       ansible.builtin.file:
         path: /home/zyzyx/git/
@@ -55,6 +59,58 @@
       ansible.builtin.file:
         path: /home/zyzyx/git/nerd-fonts/
         state: absent
+    - name: clone Neovim
+      ansible.builtin.git:
+        repo: https://github.com/neovim/neovim
+        dest: /home/zyzyx/git/
+        depth: 1
+    - name: install Neovim
+      make:
+        chdir: /home/zyzyx/git/
+    - name: clone dotFiles
+      ansible.builtin.git:
+        repo: https://github.com/zyzyx159/dotFiles
+        dest: /home/zyzyx/git/
+        depth: 1
+    - name: delete original dot files
+      file:
+        path: '{{ item }}'
+        state: absent
+        become: yes
+      with_items:
+        - ~/.config/kitty/
+        - ~/.config/nvim/
+        - ~/.config/nvim-writing/
+        - ~/.config/custScripts/
+        - ~/.config/starship.toml
+        - ~/.config/terminator/
+        - ~/.config/tmux/
+        - ~/.zshrc
+        - /etc/ssh/sshd_config
+    - name: link dot files
+      file:
+        src: {{item.path}}
+        dest: {{item.dest}}
+        with_items:
+          - ~/git/dotFiles/kitty/ ~/.config/kitty/
+          - ~/git/dotFiles/nvim-programing/ ~/.config/nvim/
+          - ~/git/dotFiles/nvim-writing/ ~/.config/nvim-writing/
+          - ~/git/dotFiles/scripts/ ~.config/custScripts/
+          - ~/git/dotFiles/starship/starship.toml ~/.config/starship.toml
+          - ~/git/dotFiles/terminator ~/.config/terminator/
+          - ~/git/dotFiles/tmux/ ~/.config/tmux/
+          - ~/git/dotFiles/zsh/.zshrc ~/.zshrc
+        owner: zyzyx
+        group: zyzyx
+        state: link
+        mode: '740'
+    - name: copy sshd_config file
+      file:
+        src: ~/git/dotFiles/ssh/sshd_config
+        dest: /etc/ssh/
+        owner: root
+        group: root
+        mode: '644'
     - name: find 16 fastest repositories
       ansible.builtin.shell: nala fetch --auto --fetches 16
       become: true
