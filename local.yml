@@ -24,7 +24,6 @@
           - nala
           - neofetch
           - lsb-release
-          - sudo
           - tmux
           - unzip
           - wget
@@ -34,8 +33,6 @@
       user:
         name: zyzyx
         shell: /bin/zsh
-        groups: sudo
-        append: yes
     - name: add ssh key
       user: 
         name: zyzyx
