@@ -89,8 +89,8 @@
         - /etc/ssh/sshd_config
     - name: link dot files
       file:
-        src: {{item.path}}
-        dest: {{item.dest}}
+        src: '{{item.path}}'
+        dest: '{{item.dest}}'
         with_items:
           - ~/git/dotFiles/kitty/ ~/.config/kitty/
           - ~/git/dotFiles/nvim-programing/ ~/.config/nvim/
