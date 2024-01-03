@@ -37,9 +37,10 @@
         groups: sudo
         append: yes
     - name: add ssh key
-      user: zyzyx
-      state: present
-      key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
+      user: 
+        name: zyzyx
+        state: present
+        key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
     - name: make git folder
       ansible.builtin.file:
         path: /home/zyzyx/git/
