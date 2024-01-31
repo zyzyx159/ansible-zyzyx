@@ -45,18 +45,6 @@
         group: zyzyx
         state: directory
         mode: "0770"
-    - name: clone nerd-font
-      ansible.builtin.git:
-        repo: https://github.com/ryanoasis/nerd-fonts
-        dest: /home/zyzyx/git/nerd-fonts/
-        depth: 1
-    - name: install nerd-fonts
-      ansible.builtin.script:
-        cmd: /home/zyzyx/git/nerd-fonts/install.sh
-    - name: remove nerd-fonts
-      ansible.builtin.file:
-        path: /home/zyzyx/git/nerd-fonts/
-        state: absent
     - name: clone Neovim
       ansible.builtin.git:
         repo: https://github.com/neovim/neovim
