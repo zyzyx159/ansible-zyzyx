@@ -59,7 +59,7 @@
     - name: clone dotFiles
       ansible.builtin.git:
         repo: https://github.com/zyzyx159/dotFiles
-        dest: /home/zyzyx/git/
+        dest: /home/zyzyx/git/dotFiles
         depth: 1
     - name: delete original dot files
       file:
