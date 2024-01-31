@@ -45,7 +45,6 @@
         - ~/.config/terminator/
         - ~/.config/tmux/
         - ~/.zshrc
-        - /etc/ssh/sshd_config
     - name: link dot files
       file:
         src: "{{item.path}}"
