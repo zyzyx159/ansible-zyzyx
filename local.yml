@@ -20,7 +20,6 @@
           - cmake
           - cmatrix
           - curl
-          - flatpak
           - gettext
           - gnupg
           - htop
