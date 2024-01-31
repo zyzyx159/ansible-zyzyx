@@ -47,8 +47,8 @@
         - ~/.zshrc
     - name: link dot files
       file:
-        src: "{{item.path}}"
-        dest: "{{item.dest}}"
+        src: "{{ item.path }}"
+        dest: "{{ item.dest }}"
         with_items:
           - { path: "~/git/dotFiles/kitty/", dest: "~/.config/kitty/" }
           - { path: "~/git/dotFiles/nvim-programing/", dest: "~/.config/nvim/" }
