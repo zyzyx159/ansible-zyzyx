@@ -33,7 +33,7 @@
         state: latest
     - name: copy sshd_config file
       file:
-        src: Files/sshd_config
+        src: files/sshd_config
         dest: /etc/ssh/
         owner: root
         group: root
