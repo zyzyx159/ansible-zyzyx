@@ -32,7 +32,7 @@
           - zsh
         state: latest
     - name: copy sshd_config file
-      file:
+      copy:
         src: files/sshd_config
         dest: /etc/ssh/
         owner: root
