@@ -42,3 +42,4 @@
       ansible.builtin.shell: nala fetch --auto --fetches 16
     - name: nala update
       ansible.builtin.shell: nala update
+  - meta: end_play
