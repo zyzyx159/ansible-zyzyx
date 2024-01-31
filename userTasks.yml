@@ -51,13 +51,8 @@
         dest: "{{item.dest}}"
         with_items:
           - { path: "~/git/dotFiles/kitty/", dest: "~/.config/kitty/" }
-          - ~/git/dotFiles/nvim-programing/ ~/.config/nvim/
-          - ~/git/dotFiles/nvim-writing/ ~/.config/nvim-writing/
-          - ~/git/dotFiles/scripts/ ~.config/custScripts/
-          - ~/git/dotFiles/starship/starship.toml ~/.config/starship.toml
-          - ~/git/dotFiles/terminator ~/.config/terminator/
-          - ~/git/dotFiles/tmux/ ~/.config/tmux/
-          - ~/git/dotFiles/zsh/.zshrc ~/.zshrc
+          - { path: "~/git/dotFiles/nvim-programing/", dest: "~/.config/nvim/" }
+
         owner: zyzyx
         group: zyzyx
         state: link
