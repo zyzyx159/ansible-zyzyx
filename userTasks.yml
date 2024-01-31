@@ -1,7 +1,7 @@
 ---
 - name: "run local"
   hosts: localhost
-  connections: local
+  connection: local
   tasks:
     - name: change shell
       user:
