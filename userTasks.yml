@@ -1,4 +1,6 @@
-- hosts: localhost
+---
+- name: "run local"
+  hosts: localhost
   connections: local
   tasks:
     - name: change shell
