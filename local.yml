@@ -47,14 +47,6 @@
         group: zyzyx
         state: directory
         mode: "0770"
-    - name: clone Neovim
-      ansible.builtin.git:
-        repo: https://github.com/neovim/neovim
-        dest: /home/zyzyx/git/
-        depth: 1
-    - name: install Neovim
-      make:
-        chdir: /home/zyzyx/git/neovim
     - name: clone dotFiles
       ansible.builtin.git:
         repo: https://github.com/zyzyx159/dotFiles
