@@ -34,7 +34,7 @@
         name: zyzyx
         shell: /bin/zsh
     - name: add ssh key
-      user: 
+      authorized_key:
         name: zyzyx
         state: present
         key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
@@ -44,7 +44,7 @@
         owner: zyzyx
         group: zyzyx
         state: directory
-        mode: '0770'
+        mode: "0770"
     - name: clone nerd-font
       ansible.builtin.git:
         repo: https://github.com/ryanoasis/nerd-fonts
@@ -72,7 +72,7 @@
         depth: 1
     - name: delete original dot files
       file:
-        path: '{{ item }}'
+        path: "{{ item }}"
         state: absent
         become: yes
       with_items:
@@ -87,8 +87,8 @@
         - /etc/ssh/sshd_config
     - name: link dot files
       file:
-        src: '{{item.path}}'
-        dest: '{{item.dest}}'
+        src: "{{item.path}}"
+        dest: "{{item.dest}}"
         with_items:
           - ~/git/dotFiles/kitty/ ~/.config/kitty/
           - ~/git/dotFiles/nvim-programing/ ~/.config/nvim/
@@ -101,14 +101,14 @@
         owner: zyzyx
         group: zyzyx
         state: link
-        mode: '740'
+        mode: "740"
     - name: copy sshd_config file
       file:
         src: ~/git/dotFiles/ssh/sshd_config
         dest: /etc/ssh/
         owner: root
         group: root
-        mode: '644'
+        mode: "644"
     - name: find 16 fastest repositories
       ansible.builtin.shell: nala fetch --auto --fetches 16
       become: true
