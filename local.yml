@@ -26,6 +26,7 @@
           - nala
           - neofetch
           - lsb-release
+          - lsd
           - tmux
           - unzip
           - wget
