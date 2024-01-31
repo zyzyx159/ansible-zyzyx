@@ -1,4 +1,5 @@
-- hosts: all
+- hosts: localhost
+  connections: local
   tasks:
     - name: change shell
       user:
