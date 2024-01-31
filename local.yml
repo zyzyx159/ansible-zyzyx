@@ -48,7 +48,7 @@
     - name: clone nerd-font
       ansible.builtin.git:
         repo: https://github.com/ryanoasis/nerd-fonts
-        dest: /home/zyzyx/git/
+        dest: /home/zyzyx/git/nerd-fonts/
         depth: 1
     - name: install nerd-fonts
       ansible.builtin.script:
