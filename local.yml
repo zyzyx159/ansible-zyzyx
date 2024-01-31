@@ -35,7 +35,7 @@
         shell: /bin/zsh
     - name: add ssh key
       authorized_key:
-        name: zyzyx
+        user: zyzyx
         state: present
         key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
     - name: make git folder
