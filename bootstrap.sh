@@ -1,1 +1,1 @@
-sudo apt -qq update && sudo apt install ansible, git, sudo, python3 
+sudo apt -qq update && sudo apt install ansible, git, python3
