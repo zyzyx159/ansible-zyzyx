@@ -13,7 +13,6 @@
         name: "*"
         state: latest
     - name: install base apps
-      become: yes
       apt:
         name:
           - build-essential
@@ -33,7 +32,6 @@
           - zsh
         state: latest
     - name: copy sshd_config file
-      become: yes
       file:
         src: ~/git/dotFiles/ssh/sshd_config
         dest: /etc/ssh/
@@ -41,7 +39,6 @@
         group: root
         mode: "644"
     - name: find 16 fastest repositories
-      become: yes
       ansible.builtin.shell: nala fetch --auto --fetches 16
       become: true
     - name: nala update
