@@ -33,7 +33,6 @@
       file:
         path: "{{ item }}"
         state: absent
-        become: yes
       with_items:
         - ~/.config/kitty/
         - ~/.config/nvim/
