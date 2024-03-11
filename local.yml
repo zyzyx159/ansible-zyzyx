@@ -4,13 +4,6 @@
     - name: set time zone to America/Chicago
       timezone:
         name: America/Chicago
-    - name: update
-      apt:
-        update_cache: yes
-    - name: update and upgrade all packages
-      apt:
-        name: "*"
-        state: latest
     - name: install base apps
       apt:
         name:
@@ -18,18 +11,15 @@
           - ca-certificates
           - cmake
           - cmatrix
-          - curl
           - gettext
           - gnupg
           - htop
-          - nala
           - neofetch
           - lsb-release
           - lsd
           - sudo
           - tmux
           - unzip
-          - wget
           - zsh
         state: latest
     - name: copy sshd_config file
