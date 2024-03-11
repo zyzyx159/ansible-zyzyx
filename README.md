@@ -1,8 +1,8 @@
 # ansible-zyzyx
 
-rapid deploy setup for Ubuntu
+rapid deploy setup for Debian
 
 Zyzyx, you always forget this line
 
-ansible-pull -U https://github.com/zyzyx159/bootstrap.git -i "$(hostname --short)," --ask-become-pass
+wget -O- https://raw.githubusercontent.com/zyzyx159/bootstrap/main/bootstrap.sh | sh
 
