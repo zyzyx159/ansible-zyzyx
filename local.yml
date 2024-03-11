@@ -26,6 +26,7 @@
           - neofetch
           - lsb-release
           - lsd
+          - sudo
           - tmux
           - unzip
           - wget
