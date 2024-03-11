@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # minimal base line apps for running ansible
-apt -qq update && apt -y install git python3 wget gpg nala
+apt -qq update && apt -y install curl git gpg nala python3 wget 
 
 # install ansible repository
 UBUNTU_CODENAME=jammy #use the ubuntu code name
