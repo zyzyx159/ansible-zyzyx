@@ -12,7 +12,7 @@ echo "deb [signed-by=/usr/share/keyrings/ansible-archive-keyring.gpg] http://ppa
 nala fetch --fetches 16 --assume-yes --auto
 
 # install ansible
-nala install ansible
+nala install ansible --assume-yes
 
 # install starship - its not in the offical repos
 curl -O https://starship.rs/install.sh | sh
