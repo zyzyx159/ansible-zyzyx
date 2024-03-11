@@ -38,3 +38,8 @@
         owner: root
         group: root
         mode: "644"
+    - name: add ssh key
+      authorized_key:
+        user: zyzyx
+        state: present
+        key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
