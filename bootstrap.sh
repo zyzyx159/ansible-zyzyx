@@ -15,7 +15,7 @@ nala fetch --fetches 16 --assume-yes --auto
 nala install ansible --assume-yes
 
 # install starship - its not in the offical repos
-curl -O https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh
 
 # run ansible
 ansible-pull -U https://github.com/zyzyx159/bootstrap.git -i "$(hostname --short),"
