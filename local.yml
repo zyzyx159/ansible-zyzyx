@@ -31,7 +31,7 @@
         mode: "644"
     - name: add user zyzyx
       ansible.builtin.user:
-        name: james
+        name: zyzyx
         shell: /bin/zsh
         groups: sudo
         append: yes
