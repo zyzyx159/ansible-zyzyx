@@ -29,6 +29,12 @@
         owner: root
         group: root
         mode: "644"
+    - name: add user zyzyx
+      ansible.builtin.user:
+        name: james
+        shell: /bin/zsh
+        groups: sudo
+        append: yes
     - name: add ssh key
       authorized_key:
         user: zyzyx
