@@ -37,6 +37,16 @@
         shell: /bin/zsh
         groups: sudo
         append: yes
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /home/zyzyx/.ssh
+        state: directory
+        mode: '0710'
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /etc/some_directory
+        state: directory
+        mode: '0700'
     - name: generate SSH key "{{ssh_key_filename}}"
       community.crypto.openssh_keypair:
         path: /home/zyzyx/.ssh/{{ssh_key_filename}}
