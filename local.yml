@@ -35,7 +35,15 @@
         shell: /bin/zsh
         groups: sudo
         append: yes
-    - name: add ssh key
+    - name: generate SSH key "{{ssh_key_filename}}"
+      community.crypto.openssh_keypair:
+        path: /home/zyzyx/.ssh/{{ssh_key_filename}}
+        type: ed25519
+        comment: Dstellm@gmail.com
+    - name: GHPush echo
+      ansible.builtin.debug:
+        msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
+    - name: add ssh key to authorised_keys
       authorized_key:
         user: zyzyx
         state: present
