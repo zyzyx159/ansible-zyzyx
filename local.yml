@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  vars:
+    ssh_key_filename: ed25519_key
   tasks:
     - name: set time zone to America/Chicago
       timezone:
