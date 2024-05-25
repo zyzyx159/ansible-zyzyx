@@ -42,6 +42,11 @@
         path: /home/zyzyx/.ssh
         state: directory
         mode: '0710'
+    - name: add ssh key to authorised_keys
+      authorized_key:
+        user: zyzyx
+        state: present
+        key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
     - name: generate SSH key "{{ssh_key_filename}}"
       user:
         name: "zyzyx"
@@ -53,8 +58,4 @@
     - name: GHPush echo
       ansible.builtin.debug:
         msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
-    - name: add ssh key to authorised_keys
-      authorized_key:
-        user: zyzyx
-        state: present
-        key: "{{ lookup('url', 'https://github.com/zyzyx159.keys', split_lines=False) }}"
+
