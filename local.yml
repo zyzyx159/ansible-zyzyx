@@ -2,6 +2,9 @@
 - hosts: all
   vars:
     ssh_key_filename: ed25519_key
+  vars_prompt:
+    - name: "ssh_passphrase"
+      prompt: "Enter the passphrase for the SSH key"
   tasks:
     - name: set time zone to America/Chicago
       timezone:
@@ -43,10 +46,14 @@
         state: directory
         mode: '0710'
     - name: generate SSH key "{{ssh_key_filename}}"
-      community.crypto.openssh_keypair:
-        path: /home/zyzyx/.ssh/{{ssh_key_filename}}
-        type: ed25519
-        comment: Dstellm@gmail.com
+      user:
+        name: "zyzyx"
+        generate_ssh_key: yes
+        ssh_key_type: rsa
+        ssh_key_bits: 4096
+        ssh_key_file: .ssh/{{ssh_key_filename}}
+        ssh_key_passphrase: "{{ssh_passphrase}}"
+        force: yes
     - name: GHPush echo
       ansible.builtin.debug:
         msg: "ghpush {{ lookup('ansible.builtin.file', '/home/zyzyx/.ssh/ed25519_key.pub') }} zyzyx@{{ansible_hostname}}"
