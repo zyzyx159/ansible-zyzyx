@@ -41,6 +41,8 @@
       ansible.builtin.file:
         path: /home/zyzyx/.ssh
         state: directory
+        owner: zyzyx
+        group: zyzyx
         mode: '0710'
     - name: add ssh key to authorised_keys
       authorized_key:
