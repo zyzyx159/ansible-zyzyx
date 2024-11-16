@@ -16,7 +16,7 @@
           - gettext
           - gnupg
           - htop
-          - neofetch
+          - fastfetch
           - lsb-release
           - lsd
           - sudo
